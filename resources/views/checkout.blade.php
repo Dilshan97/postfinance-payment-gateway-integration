@@ -12,7 +12,9 @@
  -->
 
 <?php
+
     $shaInSignature = 'Mysecretsig1875!?';
+
     $params = [
         'PSPID'        => 'lonkahutsTEST',
         'ORDERID'      => 'INV-' . mt_rand(100000, 999999),
@@ -28,6 +30,7 @@
         'EXCEPTIONURL' => env('APP_URL', 'http://localhost') . '/redirct',
         'CANCELURL'    => env('APP_URL', 'http://localhost') . '/redirct',
     ];
+
     $postfinance = new Offline\PaymentGateways\PostFinance($shaInSignature);
     $postfinance->setParamList($params);
 ?>
@@ -39,6 +42,26 @@
         <div class="row justify-content-center">
 
             <table class="table">
+
+               <tr>
+                   <h3>{{$params['TITLE']}}</h3>
+               </tr>
+
+                <tr>
+                    <td>Customer Name</td>
+                    <td>{{$params['CN']}}</td>
+                </tr>
+
+                <tr>
+                    <td>Customer E-mail</td>
+                    <td>{{$params['EMAIL']}}</td>
+                </tr>
+
+                <tr>
+                    <td>Customer Address</td>
+                    <td>{{$params['OWNERADDRESS']}}</td>
+                </tr>
+
                 <tr>
                     <td>PSPID</td>
                     <td>{{$params['PSPID']}}</td>
@@ -51,20 +74,22 @@
 
                 <tr>
                     <td>AMOUNT</td>
-                    <td>{{$params['AMOUNT'] / 100}}</td>
+                    <td>CHF {{$params['AMOUNT'] / 100}}</td>
                 </tr>
+
                 <tr>
                     <td>CURRENCY</td>
                     <td>{{$params['CURRENCY']}}</td>
                 </tr>
+
                 <tr>
                     <td>LANGUAGE</td>
                     <td>{{$params['LANGUAGE']}}</td>
                 </tr>
             </table>
-        </div>
 
-        <button type="submit" class="btn btn-primary">Pay Now</button>
+            <button type="submit" class="btn btn-primary">Pay Now</button>
+        </div>
     </form>
 </div>
 

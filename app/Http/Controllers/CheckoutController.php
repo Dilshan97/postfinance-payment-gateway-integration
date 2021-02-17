@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Offline\PaymentGateways\PostFinance;
 
 class CheckoutController extends Controller
 {
@@ -26,7 +27,7 @@ class CheckoutController extends Controller
         if($isValid){
             if($_GET['STATUS'] == 5 || $_GET['STATUS'] == 4 || $_GET['STATUS'] == 9  ){
                 $this->store_data( $_GET);
-                Flash::info('Your payment is authorised');
+                flash_on::info('Your payment is authorised');
                 //return view('auth.dashboard.subscriber');
                 // return redirect()->action('AdminController@subscriber');
             }else{

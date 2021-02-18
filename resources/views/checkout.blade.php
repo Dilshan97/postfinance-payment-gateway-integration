@@ -13,10 +13,10 @@
 
 <?php
 
-    $shaInSignature = 'Mysecretsig1875!?';
+    $shaInSignature = 'abcdefghij12345!';
 
     $params = [
-        'PSPID'        => 'lonkahutsTEST',
+        'PSPID'        => 'ctrlhelpTEST',
         'ORDERID'      => 'INV-' . mt_rand(100000, 999999),
         'AMOUNT'       => (int) 2000 * 100,
         'CURRENCY'     => 'CHF',
